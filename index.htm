@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ICE Front End to Back End: Smarty TPL</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./scrollstyle.css">
+  <link rel="stylesheet" href="./cursorstyle.css">
+  <link rel="stylesheet" href="./horizontalstyle.css">
+  <link rel="stylesheet" href="ICEFrontEndtoBackEndSmartyTPL_files/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+</head>
+<body>
+  <div class="cursor"></div>
+<!-- partial:index.partial.html -->
+<!-- MENU OVERLAY -->
+    <div class="overlay overlay-slide-left" id="overlay">
+      <!-- MENU ITEMS -->
+      <nav>
+        <ul>
+          <li id="nav-1" class="slide-out-1 center">
+            <a href="#" onclick="document.getElementById('id01').style.display='block';" class="w3-bar-item w3-button">Pop 1</a>
+          </li>
+          <li id="nav-2" class="slide-out-2 center">
+             <a href="#" onclick="document.getElementById('idyellow01').style.display='block';" class="w3-bar-item w3-button">Pop Yellow</a>
+          </li>
+          <li id="nav-3" class="slide-out-3 center">
+            <a href="#" onclick="document.getElementById('idred01').style.display='block';" class="w3-bar-item w3-button">Pop Red</a>
+          </li>
+          <li id="nav-4" class="slide-out-4 center">
+            <a target="graph" href="https://melt.ice4po.co.za/demo/backend-1/charts.php?S=1" class="w3-bar-item w3-button">Charts[New Tab]</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- HAMBURGER MENU -->
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="menu-bar1"></div>
+      <div class="menu-bar2"></div>
+      <div class="menu-bar3"></div>
+    </div>
+	
+<!-- partial 
+<div class="w3-lightred">
+  <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">☰</button>
+  button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">&#9776;</button !-->
+  <br><br><br>
+<!--Scroll down !-->
+
+
+<div class="w3-container">
+  <h1>CURRENT SNOWFLAKES</h1>
+	<h2>SNOWFLAKES: SMARTY - FRONTEND TO BACKEND</h2>
+    <h4>THE STORY OF MOVING FROM FRONTEND TO BACKEND VIA SMARTY</h4>
+  
+<center>
+<div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      
+
+  <div id="idgraph01" class="w3-modal" style="resize: both;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">×</span>
+        <h2>Modal Header</h2>
+      </header>
+      <div class="w3-container">
+				<div class="w3-cell-row">
+					<div class="w3-container w3-cell">
+						<svg id="svg1" style="resize: both;"></svg>
+					</div>
+					<div class="w3-container w3-cell">
+						<form id="ChartForm" action="javascript:return false;">
+							<select id="chart-url">
+								<option selected="selected" disabled="disabled">Select Chart</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+								<option value="4">Four</option>
+							</select>
+						</form>
+					</div>
+				</div>
+				<div id="status-message">
+					This content will be replaced by the results from charts.php
+				</div>
+      </div>
+      <footer class="w3-container w3-teal">
+				<button onclick="load_graph(); returnfalse;" class="w3-button">Show Graph</button>
+				<button onclick="document.getElementById('idgraph01').style.display='none'" class="w3-button">Close</button>
+      </footer>
+    </div>
+  </div>
+  <div id="idgraph02" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+				<header class="w3-container w3-gray">
+					<span onclick="$('#idgraph01').hide();" class="w3-button w3-display-topright">×</span>
+				</header>
+				<div id="status-message" class="w3-container">
+        This content will be replaced by the results from charts.php
+				</div>
+				
+				<footer class="w3-container w3-gray">
+					<button onclick="load_graph(1);" class="w3-button">Show Graph</button>
+					<button onclick="document.getElementById('idgraph01').style.display='none'" class="w3-button">Close</button>
+				</footer>
+      </div>
+    </div>
+  </div>
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">×</span>
+        <p>Some text. Some text. Some text.</p>
+        <p>Some text. Some text. Some text.</p>
+      </div>
+    </div>
+  </div>
+  <div id="idyellow01" class="w3-modal" style="display: none;">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('idyellow01').style.display='none'" class="w3-button w3-display-topright">×</span>
+<div class="w3-panel w3-pale-yellow w3-border">
+  <h3>Warning!</h3>
+  <p>Yellow often indicates a warning that might need attention.</p>
+</div>
+<div class="w3-border w3-hover-opacity w3-hover-yellow">
+  <p>w3-hover-yellow with w3-hover-opacity</p>
+</div>
+
+<div class="w3-panel w3-yellow w3-border">
+  <h3>Warning!</h3>
+  <p>Yellow often indicates a warning that might need attention.</p>
+</div>
+      </div>
+    </div>
+  </div>
+  <div id="idred01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('idred01').style.display='none'" class="w3-button w3-display-topright">×</span>
+
+<div class="w3-panel w3-red">
+  <h3>Danger!</h3>
+  <p>Red often indicates a dangerous or negative situation.</p>
+</div>
+<div class="w3-border w3-hover-opacity w3-hover-red">
+  <p>w3-hover-red with w3-hover-opacity</p>
+</div>
+<div class="w3-panel w3-pale-red w3-border">
+  <h3>Warning!</h3>
+  <p>Red often indicates a danger that might need urgent attention.</p>
+</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-card-4" style="width:70%;">
+    <header class="w3-container w3-blue">
+      <h1>Front-End Story</h1>
+    </header>
+
+    <div class="w3-container">
+  <div class="w3-padding-32 w3-red w3-circle">
+    <div class="w3-padding-32 w3-yellow w3-circle w3-center" style="width:55%">
+  <div class="w3-xxxlarge w3-text-red">
+  ❶ ❷ ❸ ❹ ❺
+  </div>
+    </div>
+  <div class="w3-xxlarge w3-text-green" style="padding-left:25%;">
+  ➅ ➆ ➇ ➈ ➉
+  </div>
+  </div>
+			<ul>Please Update the Front-End Story
+            <li class="nav-item">
+                <a class="nav-link" href="https://melt.ice4po.co.za/demo/frontend-1/">Front-End</a>
+            </li>
+				<li>From WYSIWYG Web Builder 17 Trial Version  <br><a href="https://www.wysiwygwebbuilder.com/">www.wysiwygwebbuilder.com</a></li>
+			</ul>
+    </div>
+
+    <footer class="w3-container w3-blue">
+      <h5>Footer Front-End</h5>
+    </footer>
+  </div>
+  </div>
+  <div class="cursor"></div>
+  <div class="bar">
+    <span class="bar_content">
+      
+      <h1><b>Ice is a window to the past | Fresh water freezes at zero degrees Celsius</b></h1></span>
+     
+    </h1></span>
+  </div>
+    <br><br><br><br>
+  <div class="flip-box-back">
+<hr style="padding: 5px; width:90%;">
+  <div class="w3-card-4" style="width:70%;">
+    <header class="w3-container w3-blue">
+      <h1>Back-End Story</h1>
+    </header>
+
+    <div class="w3-container">
+  <div class="w3-padding-32 w3-green w3-circle">
+    <div class="w3-padding-32 w3-yellow w3-circle w3-center" style="width:55%">
+  <div class="w3-xxlarge w3-text-green">
+  ❶ ❷ ❸
+  </div>
+				</div>
+  <div class="w3-xxlarge w3-text-yellow" style="padding-left:20%;">
+  ❹ ❺  ➅ ➆ ➇ ➈ ➉
+  </div>
+			</div>
+
+			<ul>
+      <li class="nav-item">
+				<a class="nav-link" href="https://melt.ice4po.co.za/demo/backend-1/">Back-End</a><br>
+        <a class="nav-link" href="https://melt.ice4po.co.za/demo/frontend-1/">Fron-tEnd</a>
+      </li>
+		
+      
+			<li class="nav-item">Website = <a class="nav-link" href="https://www.smarty.net/">Smarty.net</a></li>
+			<li class="nav-item"><a class="nav-link" href="https://www.smarty.net/crash_course">Take a crash course</a></li>
+			<li class="nav-item"><a class="nav-link" href="https://www.smarty.net/docs/en/">Full Smarty Documentation</a></li>
+			<li class="nav-item"><a class="nav-link" href="https://www.goat1000.com/svggraph.php">Charts from SVG Graph</a></li>
+      <p>The backend is driven by PHP using SMARTY Template Engine and SVGGraph.</p>
+    </ul>
+    </div>
+
+    <footer class="w3-container w3-blue">
+      <h5>Footer Back-End</h5>
+    </footer>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</center>
+    <!-- SECTIONS -->
+    <section id="home" class="center">
+      <a href="https://ice4po.co.za/" target="_blank" class="logo"><b><h2>ICE</h2></b></a>
+    </section>
+  <script  src="./script.js"></script>
+  <script  src="./cursorscript.js"></script>
+  <div class="cursor"></div>
+  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script><script  src="./script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="ICEFrontEndtoBackEndSmartyTPL_files/jquery-3.js"></script>
+  <script src="ICEFrontEndtoBackEndSmartyTPL_files/graph.js"></script>
+
+</body>
+</html>
